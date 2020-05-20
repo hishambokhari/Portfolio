@@ -39,4 +39,14 @@ class GitPortfoliosController < ApplicationController
   def show
     @portfolio_item = GitPortfolio.find(params[:id])
   end
+
+  def destroy
+    @portfolio_item = GitPortfolio.find(params[:id])
+
+    @portfolio_item.destroy
+    
+    respond_to do |format|
+      format.html { redirect_to git_portfolios_url, notice: 'Portfolio was removed.' }
+    end
+  end
 end
