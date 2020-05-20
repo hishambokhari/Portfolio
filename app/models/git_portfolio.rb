@@ -1,0 +1,2 @@
+class GitPortfolio < ApplicationRecord
+end

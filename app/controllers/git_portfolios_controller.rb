@@ -1,0 +1,2 @@
+class GitPortfoliosController < ApplicationController
+end
