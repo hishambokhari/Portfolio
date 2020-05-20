@@ -35,4 +35,8 @@ class GitPortfoliosController < ApplicationController
   def edit
     @portfolio_item = GitPortfolio.find(params[:id])
   end
+
+  def show
+    @portfolio_item = GitPortfolio.find(params[:id])
+  end
 end
