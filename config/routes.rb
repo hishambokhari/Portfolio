@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   resources :git_portfolios, except: [:show]
+  get 'angular-items', to: 'git_portfolios#angular'
   get 'git_portfolios/:id', to: 'git_portfolios#show', as: 'git_portfolio_show'
   
   get 'about-me', to: 'pages#about'

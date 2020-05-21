@@ -4,6 +4,10 @@ class GitPortfoliosController < ApplicationController
     @portfolio_items = GitPortfolio.all
   end
 
+  def angular
+    @angular_portfolio_items = GitPortfolio.angular
+  end
+
   def new
     @portfolio_item = GitPortfolio.new
   end
