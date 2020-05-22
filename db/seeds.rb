@@ -46,3 +46,12 @@ end
 end
 
 puts "9 portfolio items created"
+
+3.times do |technology|
+  GitPortfolio.last.technologies.create!(
+    name: "Technology #{technology}",
+    git_portfolio_id: GitPortfolio.last.id
+  )
+end
+
+puts "3 technologies created"
