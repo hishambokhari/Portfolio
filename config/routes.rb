@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  devise_for :users
   resources :git_portfolios, except: [:show]
   get 'angular-items', to: 'git_portfolios#angular'
   get 'git_portfolios/:id', to: 'git_portfolios#show', as: 'git_portfolio_show'
