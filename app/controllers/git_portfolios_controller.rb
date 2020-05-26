@@ -14,7 +14,7 @@ class GitPortfoliosController < ApplicationController
   end
   
   def create
-    @portfolio_item = GitPortfolio.new(params.require(:git_portfolio).permit(:title, :subtitle, :body, technologies_attributes: [:name]))
+    @portfolio_item = GitPortfolio.new(portfolio_params)
 
     respond_to do |format|
       if @portfolio_item.save
@@ -29,7 +29,7 @@ class GitPortfoliosController < ApplicationController
     @portfolio_item = GitPortfolio.find(params[:id])
 
     respond_to do |format|
-      if @portfolio_item.update(params.require(:git_portfolio).permit(:title, :subtitle, :body))
+      if @portfolio_item.update(portfolio_params)
         format.html { redirect_to git_portfolios_path , notice: 'The record was successfully updated.' }
       else
         format.html { render :edit }
@@ -54,4 +54,15 @@ class GitPortfoliosController < ApplicationController
       format.html { redirect_to git_portfolios_url, notice: 'Portfolio was removed.' }
     end
   end
+
+  private
+
+  def portfolio_params
+    params.require(:git_portfolio).permit(:title,
+                                          :subtitle,
+                                          :body, 
+                                          technologies_attributes: [:name]
+                                        )
+  end
+
 end
